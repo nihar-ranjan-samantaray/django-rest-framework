@@ -4,8 +4,8 @@
 #### 1. Create a Virtual Environment
 `virtualenv venv`<br>
 
-#### 2. Enter to Virtual Environment
-`venv/bin/activate`<br>
+#### 2. Activate Virtual Environment
+`venv\Scripts\activate`<br>
 
 #### 3. Install the required Packages
 `pip install -r requirements.txt`<br>
