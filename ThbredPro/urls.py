@@ -25,10 +25,12 @@ urlpatterns = [
     path('', views.home,name='home'),
     path('login',views.userAuthentication,name='login'),
     path('register',views.userRegistration,name='register'),
-    path('upload',views.fileUpload,name='upload'),
-    path('usersInfo',views.getUserInfo,name='usersInfo'),
-]
+    path('upload',views.fileExtract,name='upload'),
+    path('getAllExtraction',views.getAllExtraction,name='getAllExtraction'),
+    path('getSingleExtraction/<int:id>',views.getSingleExtraction,name='getSingleExtraction'),
+    path('updateExtraction/<int:id>',views.updateExtraction,name='updateExtraction'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-if settings.DEBUG:
-    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -25,10 +25,12 @@ SECRET_KEY = 'django-insecure-_konm33@$==vwpvqx)a3-v&&aj_pm-$0uo%rfh2h5^hxj2nh5k
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-TOKEN_EXPIRED_AFTER_SECONDS = 300
+TOKEN_EXPIRED_AFTER_SECONDS = 7200
+POPPLER_PATH=r'C:\Program Files\poppler-0.68.0\bin'
+TESSERACT_PATH=r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 ALLOWED_HOSTS = [
-    '*'
-]
+    '*' 
+    ]
 
 
 
@@ -88,13 +90,26 @@ WSGI_APPLICATION = 'ThbredPro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'OPTIONS': {
+        'sql_mode': 'traditional',
+    },
+    'NAME': 'thbred',
+    'USER': 'root',
+    'PASSWORD': '',
+    'HOST': 'localhost',
+    'PORT': '3306',
+  }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -144,7 +159,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # 'data' is my media folder
-MEDIA_ROOT= BASE_DIR/"media"
+MEDIA_ROOT= BASE_DIR/ 'media'
 MEDIA_URL = '/media/'
 
 
@@ -152,4 +167,3 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
